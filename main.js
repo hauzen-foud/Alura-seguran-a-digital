@@ -106,8 +106,8 @@ function calcularForca(tamanhoAlfabeto) {
 
     const dias = Math.floor((2 ** entropia) / (100e6 * 60 * 60 * 24));
 
-    textoEntropia.textContent =
-        `Um computador poderia levar aproximadamente ${dias} dias para descobrir essa senha.`;
+   textoEntropia.textContent =
+    `Um computador poderia levar aproximadamente ${dias} dias para descobrir essa senha.`;
 }
    document.getElementById("ano-atual").textContent =
     new Date().getFullYear();
