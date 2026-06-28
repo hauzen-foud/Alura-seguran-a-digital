@@ -80,7 +80,6 @@ function gerarSenha() {
     campoSenha.value = senha;
 
     calcularForca(caracteres.length);
-
 }
 
 // Calcula a força da senha
@@ -116,6 +115,7 @@ window.addEventListener("DOMContentLoaded", () => {
         new Date().getFullYear();
 
     const botaoCopiar = document.getElementById("copiar-senha");
+    const campoSenha = document.getElementById("campo-senha"); // 👈 adiciona isso aqui
 
     botaoCopiar.addEventListener("click", () => {
         navigator.clipboard.writeText(campoSenha.value);
