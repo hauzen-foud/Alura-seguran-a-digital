@@ -1,78 +1,112 @@
 
-const numeroSenha = document.querySelector('.parametro-senha__texto');
+```javascript
+// Configurações iniciais
+const quantidadeCaracteres = document.querySelector(".parametro-senha__texto");
+const botoes = document.querySelectorAll(".parametro-senha__botao");
+const campoSenha = document.querySelector("#campo-senha");
+const opcoes = document.querySelectorAll(".checkbox");
+const barraForca = document.querySelector(".forca");
+const textoEntropia = document.querySelector(".entropia");
+
 let tamanhoSenha = 12;
-numeroSenha.textContent = tamanhoSenha;
-const letrasMaiusculas = 'ABCDEFGHIJKLMNOPQRSTUVXYWZ';
-const letrasMinusculas = 'abcdefghijklmnopqrstuvxywz';
-const numeros = '0123456789';
-const simbolos = '!@%*?';
-const botoes = document.querySelectorAll('.parametro-senha__botao');
-const campoSenha = document.querySelector('#campo-senha');
-const checkbox = document.querySelectorAll('.checkbox');
-const forcaSenha = document.querySelector('.forca');
 
-botoes[0].onclick = diminuiTamanho;
-botoes[1].onclick = aumentaTamanho;
+const letrasMaiusculas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const letrasMinusculas = "abcdefghijklmnopqrstuvwxyz";
+const numeros = "0123456789";
+const simbolos = "!@#$%&*?";
 
-function diminuiTamanho() {
-    if (tamanhoSenha > 1) {
-        // tamanhoSenha = tamanhoSenha-1;
+quantidadeCaracteres.textContent = tamanhoSenha;
+
+// Eventos
+botoes[0].addEventListener("click", diminuirTamanho);
+botoes[1].addEventListener("click", aumentarTamanho);
+
+opcoes.forEach(opcao => {
+    opcao.addEventListener("click", gerarSenha);
+});
+
+gerarSenha();
+
+// Diminuir quantidade de caracteres
+function diminuirTamanho() {
+
+    if (tamanhoSenha > 4) {
         tamanhoSenha--;
     }
-    numeroSenha.textContent = tamanhoSenha;
-    geraSenha();
+
+    quantidadeCaracteres.textContent = tamanhoSenha;
+    gerarSenha();
 }
-function aumentaTamanho() {
-    if (tamanhoSenha < 20) {
-        // tamanhoSenha = tamanhoSenha+1;
+
+// Aumentar quantidade de caracteres
+function aumentarTamanho() {
+
+    if (tamanhoSenha < 32) {
         tamanhoSenha++;
     }
-    numeroSenha.textContent = tamanhoSenha;
-    geraSenha();
+
+    quantidadeCaracteres.textContent = tamanhoSenha;
+    gerarSenha();
 }
 
-for (i = 0; i < checkbox.length; i++) {
-    checkbox[i].onclick = geraSenha;
-}
+// Gera a senha
+function gerarSenha() {
 
-geraSenha();
+    let caracteres = "";
 
-function geraSenha() {
-    let alfabeto = '';
-    if (checkbox[0].checked) {
-        alfabeto = alfabeto + letrasMaiusculas;
+    if (opcoes[0].checked) caracteres += letrasMaiusculas;
+    if (opcoes[1].checked) caracteres += letrasMinusculas;
+    if (opcoes[2].checked) caracteres += numeros;
+    if (opcoes[3].checked) caracteres += simbolos;
+
+    // Evita senha vazia
+    if (caracteres.length === 0) {
+        campoSenha.value = "";
+        textoEntropia.textContent = "Selecione pelo menos uma opção.";
+        barraForca.className = "forca fraca";
+        return;
     }
-    if (checkbox[1].checked) {
-        alfabeto = alfabeto + letrasMinusculas;
-    }
-    if (checkbox[2].checked) {
-        alfabeto = alfabeto + numeros;
-    }
-    if (checkbox[3].checked) {
-        alfabeto = alfabeto + simbolos;
-    }
-    let senha = '';
+
+    let senha = "";
+
     for (let i = 0; i < tamanhoSenha; i++) {
-        let numeroAleatorio = Math.random() * alfabeto.length;
-        numeroAleatorio = Math.floor(numeroAleatorio);
-        senha = senha + alfabeto[numeroAleatorio];
+
+        const indice = Math.floor(Math.random() * caracteres.length);
+
+        senha += caracteres[indice];
+
     }
+
     campoSenha.value = senha;
-    classificaSenha(alfabeto.length);
+
+    calcularForca(caracteres.length);
 
 }
 
-function classificaSenha(tamanhoAlfabeto){
-    let entropia = tamanhoSenha * Math.log2(tamanhoAlfabeto);
-    console.log(entropia);
-    forcaSenha.classList.remove('fraca','media','forte');
-    if (entropia > 57){
-        forcaSenha.classList.add('forte');
-    } else if (entropia > 35 && entropia < 57 ) {
-        forcaSenha.classList.add('media');
-    } else if (entropia <= 35){
-        forcaSenha.classList.add('fraca');
+// Calcula a força da senha
+function calcularForca(tamanhoAlfabeto) {
+
+    const entropia = tamanhoSenha * Math.log2(tamanhoAlfabeto);
+
+    barraForca.classList.remove("fraca", "media", "forte");
+
+    if (entropia >= 60) {
+
+        barraForca.classList.add("forte");
+
+    } else if (entropia >= 40) {
+
+        barraForca.classList.add("media");
+
+    } else {
+
+        barraForca.classList.add("fraca");
+
     }
-    const valorEntropia = document.querySelector('.entropia');
-    valorEntropia.textContent = "Um computador pode levar até " + Math.floor(2**entropia/(100e6*60*60*24)) + " dias para descobrir essa senha.";
+
+    const dias = Math.floor((2 ** entropia) / (100e6 * 60 * 60 * 24));
+
+    textoEntropia.textContent =
+        `Um computador poderia levar aproximadamente ${dias} dias para descobrir essa senha.`;
 }
+```
