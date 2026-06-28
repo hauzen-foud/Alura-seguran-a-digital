@@ -111,5 +111,21 @@ function calcularForca(tamanhoAlfabeto) {
         
         document.getElementById("ano-atual").textContent =
     new Date().getFullYear();
+
+    const botaoCopiar = document.getElementById("copiar-senha");
+
+botaoCopiar.addEventListener("click", () => {
+
+    navigator.clipboard.writeText(campoSenha.value);
+
+    botaoCopiar.textContent = "Senha copiada!";
+
+    setTimeout(() => {
+
+        botaoCopiar.textContent = "Copiar senha";
+
+    },1500);
+
+});
 }
 ```
