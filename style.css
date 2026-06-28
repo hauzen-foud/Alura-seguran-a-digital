@@ -229,7 +229,8 @@ body{
     .parametro-senha{
         flex:1;
     }
- .botao-copiar{
+}
+.botao-copiar{
     margin-top:15px;
     padding:12px 20px;
     background:#2563eb;
@@ -243,10 +244,10 @@ body{
 .botao-copiar:hover{
     opacity:.9;
 }
+
 #campo-senha{
-text-align:center;
-letter-spacing:2px;
- font-weight:bold;
-}
+    text-align:center;
+    letter-spacing:2px;
+    font-weight:bold;
 }
 ```
