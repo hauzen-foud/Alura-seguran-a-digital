@@ -109,20 +109,22 @@ function calcularForca(tamanhoAlfabeto) {
   textoEntropia.textContent =
 `Um computador poderia levar aproximadamente ${dias} dias para descobrir essa senha.`;
 
-   
 }
-document.getElementById("ano-atual").textContent =
-    new Date().getFullYear();
+window.addEventListener("DOMContentLoaded", () => {
 
-const botaoCopiar = document.getElementById("copiar-senha");
+    document.getElementById("ano-atual").textContent =
+        new Date().getFullYear();
 
-botaoCopiar.addEventListener("click", () => {
-    navigator.clipboard.writeText(campoSenha.value);
+    const botaoCopiar = document.getElementById("copiar-senha");
 
-    botaoCopiar.textContent = "Senha copiada!";
+    botaoCopiar.addEventListener("click", () => {
+        navigator.clipboard.writeText(campoSenha.value);
 
-    setTimeout(() => {
-        botaoCopiar.textContent = "Copiar senha";
-    }, 1500);
+        botaoCopiar.textContent = "Senha copiada!";
+
+        setTimeout(() => {
+            botaoCopiar.textContent = "Copiar senha";
+        }, 1500);
+    });
+
 });
-```
