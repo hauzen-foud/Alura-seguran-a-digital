@@ -244,6 +244,11 @@ body{
 .botao-copiar:hover{
     opacity:.9;
 }
-
+    
+#campo-senha{
+    text-align:center;
+    letter-spacing:2px;
+    font-weight:bold;
+}
 }
 ```
