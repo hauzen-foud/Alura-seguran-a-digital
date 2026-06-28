@@ -7,6 +7,7 @@ const campoSenha = document.querySelector("#campo-senha");
 const opcoes = document.querySelectorAll(".checkbox");
 const barraForca = document.querySelector(".forca");
 const textoEntropia = document.querySelector(".entropia");
+const botaoGerar = document.querySelector("#gerar-senha");
 
 let tamanhoSenha = 12;
 
