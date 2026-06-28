@@ -108,5 +108,8 @@ function calcularForca(tamanhoAlfabeto) {
 
     textoEntropia.textContent =
         `Um computador poderia levar aproximadamente ${dias} dias para descobrir essa senha.`;
+        
+        document.getElementById("ano-atual").textContent =
+    new Date().getFullYear();
 }
 ```
