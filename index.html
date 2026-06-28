@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -12,140 +11,134 @@
 
 <body>
 
-    <main class="conteudo">
+<main class="conteudo">
 
-        <header class="conteudo-titulo">
-            <img src="meu cadeado.jpg" alt="Ícone de um cadeado">
+    <header class="conteudo-titulo">
+        <img src="meu cadeado.jpg" alt="Ícone de um cadeado">
 
-            <h1 class="titulo-principal">
-                Gerador de Senhas Seguras
-            </h1>
+        <h1 class="titulo-principal">
+            Gerador de Senhas Seguras
+        </h1>
 
-            <p class="titulo-secundario">
-                Crie senhas fortes e personalizadas para proteger suas contas.
-            </p>
-        </header>
+        <p class="titulo-secundario">
+            Crie senhas fortes e personalizadas para proteger suas contas.
+        </p>
+    </header>
 
-        <section class="conteudo-senha">
-    <label for="campo-senha">Senha gerada</label>
+    <!-- SENHA GERADA -->
+    <section class="conteudo-senha">
 
-    <input type="text" id="campo-senha" name="senha" readonly>
+        <label for="campo-senha">Senha gerada</label>
 
-    <button id="gerar-senha" class="botao-gerar">
-        Gerar senha
-    </button>
+        <input
+            type="text"
+            id="campo-senha"
+            name="senha"
+            readonly>
 
-    <button id="copiar-senha" class="botao-copiar">
-        Copiar senha
-    </button>
-</section>
-           <input
-                type="text"
-                id="campo-senha"
-                name="senha"
-                readonly>
-        </section>
+        <button id="gerar-senha" class="botao-gerar">
+            Gerar senha
+        </button>
 
-        <section class="parametro">
+        <button id="copiar-senha" class="botao-copiar">
+            Copiar senha
+        </button>
 
-            <h2 class="parametro-titulo">
-                Personalize sua senha
-            </h2>
+    </section>
 
-            <div class="parametro-coluna__senha">
+    <!-- CONFIGURAÇÕES -->
+    <section class="parametro">
 
-                <div class="parametro-senha">
+        <h2 class="parametro-titulo">
+            Personalize sua senha
+        </h2>
 
-                    <h3 class="parametro-senha__titulo">
-                        Número de caracteres
-                    </h3>
+        <div class="parametro-coluna__senha">
 
-                    <div class="parametro-senha-botoes">
-                        <button class="parametro-senha__botao">−</button>
+            <div class="parametro-senha">
 
-                        <p class="parametro-senha__texto">12</p>
+                <h3 class="parametro-senha__titulo">
+                    Número de caracteres
+                </h3>
 
-                        <button class="parametro-senha__botao">+</button>
-                    </div>
+                <div class="parametro-senha-botoes">
+                    <button class="parametro-senha__botao">−</button>
 
-                </div>
+                    <p class="parametro-senha__texto">12</p>
 
-                <div class="parametro-senha">
-
-                    <h3 class="parametro-senha__titulo">
-                        Características da senha
-                    </h3>
-
-                    <div class="parametro-senha-checkbox">
-                        <input id="maiusculo" name="maiusculo" type="checkbox" class="checkbox" checked>
-                        <label for="maiusculo">Letras maiúsculas</label>
-                    </div>
-
-                    <div class="parametro-senha-checkbox">
-                       <input id="minusculo" name="minusculo" type="checkbox" class="checkbox" checked>
-                        <label for="minusculo">Letras minúsculas</label>
-                    </div>
-
-                    <div class="parametro-senha-checkbox">
-                    <input id="numero" name="numero" type="checkbox" class="checkbox" checked>
-                        <label for="numero">Números</label>
-                    </div>
-
-                    <div class="parametro-senha-checkbox">
-                       <input id="simbolo" name="simbolo" type="checkbox" class="checkbox">
-                        <label for="simbolo">Símbolos</label>
-                    </div>
-
-                </div>
-
-                <div class="parametro-senha">
-
-                    <h3 class="parametro-senha__titulo">
-                        Nível de segurança
-                    </h3>
-
-                    <div class="barra"></div>
-                    <div class="forca fraca"></div>
-
-                    <div class="parametro-senha-textos">
-                        <p>Fraca</p>
-                        <p>Média</p>
-                        <p>Forte</p>
-                    </div>
-
-                    <p class="entropia"></p>
-
+                    <button class="parametro-senha__botao">+</button>
                 </div>
 
             </div>
 
-        </section>
+            <div class="parametro-senha">
 
-    </main>
+                <h3 class="parametro-senha__titulo">
+                    Características da senha
+                </h3>
 
-    <footer class="footer">
+                <div class="parametro-senha-checkbox">
+                    <input id="maiusculo" type="checkbox" class="checkbox" checked>
+                    <label for="maiusculo">Letras maiúsculas</label>
+                </div>
 
-        <div class="container">
+                <div class="parametro-senha-checkbox">
+                    <input id="minusculo" type="checkbox" class="checkbox" checked>
+                    <label for="minusculo">Letras minúsculas</label>
+                </div>
 
-            <p>
-                <strong>Gerador de Senhas Seguras</strong>
-            </p>
+                <div class="parametro-senha-checkbox">
+                    <input id="numero" type="checkbox" class="checkbox" checked>
+                    <label for="numero">Números</label>
+                </div>
 
-            <p>
-                Projeto desenvolvido para estudos de HTML, CSS e JavaScript.
-            </p>
+                <div class="parametro-senha-checkbox">
+                    <input id="simbolo" type="checkbox" class="checkbox">
+                    <label for="simbolo">Símbolos</label>
+                </div>
 
-            <p>
-                © <span id="ano-atual"></span>
-            </p>
+            </div>
+
+            <div class="parametro-senha">
+
+                <h3 class="parametro-senha__titulo">
+                    Nível de segurança
+                </h3>
+
+                <div class="barra"></div>
+                <div class="forca fraca"></div>
+
+                <div class="parametro-senha-textos">
+                    <p>Fraca</p>
+                    <p>Média</p>
+                    <p>Forte</p>
+                </div>
+
+                <p class="entropia"></p>
+
+            </div>
 
         </div>
 
-    </footer>
+    </section>
 
-    <script src="main.js"></script>
+</main>
+
+<footer class="footer">
+
+    <div class="container">
+
+        <p><strong>Gerador de Senhas Seguras</strong></p>
+
+        <p>Projeto desenvolvido para estudos de HTML, CSS e JavaScript.</p>
+
+        <p>© <span id="ano-atual"></span></p>
+
+    </div>
+
+</footer>
+
+<script src="main.js"></script>
 
 </body>
-
 </html>
-```
